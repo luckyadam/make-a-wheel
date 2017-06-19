@@ -8,18 +8,28 @@ const node = createElement(
     { className: 'list' },
     createElement(
       'li',
-      null,
+      { className: 'list_item', style: { color: 'red' } },
       '1'
     ),
     createElement(
       'li',
-      null,
+      { className: 'list_item' },
       '2'
     ),
     createElement(
       'li',
-      null,
+      { className: 'list_item' },
       '3'
+    ),
+    createElement(
+      'li',
+      { className: 'list_item' },
+      '4'
+    ),
+    createElement(
+      'li',
+      { className: 'list_item' },
+      '5'
     )
   )
 );

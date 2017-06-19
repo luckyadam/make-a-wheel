@@ -1,18 +1,18 @@
-exports.createElement = function (tagName, properties, ...children) {
-  return { tagName, properties, children }
+exports.createElement = function (tagName, props, ...children) {
+  return { tagName, props, children }
 }
 
 exports.createDomNode = function (vnode) {
   const tagName = vnode.tagName
-  const properties = vnode.properties
-  const namespace = properties ? properties.namespace : null
+  const props = vnode.props
+  const namespace = props ? props.namespace : null
   if (typeof vnode === 'string' || typeof vnode === 'number') {
     return document.createTextNode(vnode)
   }
   const domNode = namespace ?
     document.createElementNS(namespace, tagName) :
     document.createElement(tagName)
-  setProperties(domNode, properties)
+  setProps(domNode, props)
   const children = vnode.children
   if (children.length) {
     children.forEach(child => domNode.appendChild(createDomNode(child)))
@@ -20,29 +20,20 @@ exports.createDomNode = function (vnode) {
   return domNode
 }
 
-function setProperties (domNode, properties) {
-  for (let propName in properties) {
-    let propValue = properties[propName]
-    if (typeof propValue === 'object') {
-      if (propName === 'attributes') {
-        for (let k in propValue) {
-          let attrValue = propValue[k]
-          if (attrValue !== undefined) {
-            domNode.setAttribute(k, attrValue)
-          }
-        }
-      } else if (propName === 'style') {
-        for (let s in propValue) {
-          let styleValue = propValue[s]
-          if (styleValue !== undefined) {
-            try {
-              domNode[p][s] = styleValue
-            } catch (err) {}
-          }
+function setProps (domNode, props) {
+  for (let propName in props) {
+    let propValue = props[propName]
+    if (propName === 'style') {
+      for (let s in propValue) {
+        let styleValue = propValue[s]
+        if (styleValue !== undefined) {
+          domNode[propName][s] = styleValue
         }
       }
-    } else {
+    } else if (propName in domNode && propValue) {
       domNode[propName] = propValue
+    } else if (domNode.setAttribute) {
+      domNode.setAttribute(propName, propValue)
     }
   }
 }

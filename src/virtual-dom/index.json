@@ -1,0 +1,21 @@
+{
+  "tagName": "div",
+  "props": {
+    "className": "container"
+  },
+  "children": [
+    {
+      "tagName": "ul",
+      "props": {
+        "className": "list"
+      },
+      "children": [
+        { "tagName": "li", "props": { "className": "list_item" }, "children": [1] },
+        { "tagName": "li", "props": { "className": "list_item" }, "children": [2] },
+        { "tagName": "li", "props": { "className": "list_item" }, "children": [3] },
+        { "tagName": "li", "props": { "className": "list_item" }, "children": [4] },
+        { "tagName": "li", "props": { "className": "list_item" }, "children": [5] }
+      ]
+    }
+  ]
+}
