@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>nerv测试</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+
+  <link rel="icon" href="//www.jd.com/favicon.ico" mce_href="//www.jd.com/favicon.ico" type="image/x-icon">
+
+  <!-- global:css -->
+  <%= getCSS('base.css', 'gb') %>
+  <!-- endglobal -->
+
+  <%= getCSS() %>
+</head>
+<body>
+  <div class="mod_container" id="app"></div>
+
+  <!-- global:js -->
+  <%= getJS('nerv-module.js', 'gb') %>
+  <%= getJS('vnode.js') %>
+  <%= getJS('component.js') %>
+  <%= getJS('diff.js') %>
+  <%= getJS('patch.js') %>
+  <%= getJS('lifecycle.js') %>
+  <%= getJS('lib.js') %>
+  <!-- endglobal -->
+
+  <%= getJS() %>
+</body>
+</html>

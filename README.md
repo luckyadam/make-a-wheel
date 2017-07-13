@@ -4,6 +4,34 @@
 
 [查看Keynote](./keynote)
 
+## demo
+
+需要安装[Athena](https://github.com/o2team/athena)
+
+进入 **demo** 目录执行 `ath s` 即可看到
+
+```
+$ ath s
+```
+
+jsx语法替换配置在每一个模块的 `module-conf.js` 里的 `support`
+
+例如 `lesson-2` 模块
+
+```javascript
+support: {
+  useBabel: {
+    enable: true,
+    jsxPragma: 'createElement'
+    // jsxPragma: 'React.createElement'
+  }
+}
+```
+
+若需要查看React例子则 `jsxPragma` 配置为 `React.createElement`，并且重新执行 `ath s`
+
+demo代码例子则为 `createElement`
+
 ## Content
 
 ### Virtual Dom
@@ -13,8 +41,11 @@
 #### 虚拟dom探究
 
 何为虚拟dom
+
 dom 结构 -> dom树
+
 dom树 -> json
+
 virtual dom具体实现
 
 #### jsx
